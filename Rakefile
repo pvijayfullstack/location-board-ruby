@@ -13,4 +13,5 @@ task :deploy do
   system "git add -f user_data.rb && git commit -m 'Adding user_data.rb'"
   system "git push heroku master -f"
   system "git reset HEAD^"
+  system "git reflog expire --expire=now --all"
 end
