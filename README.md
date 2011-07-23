@@ -10,8 +10,9 @@ Creates a map based on user's Tweets, Gowalla and Foursquare check-ins
 # Deploying to Heroku
 
 1. Create an app on the cedar stack ( ````heroku create --stack cedar```` )
-2. Run the included rake task to deploy ( ````bundle exec rake deploy```` )
-3. If you haven't already, make sure to scale both the web and worker processes ( ````heroku scale web=1 worker=1 ````)
+2. Add the free Memcache add-on (the app stores user location data in memcache and refreshes every 15 min)
+3. Run the included rake task to deploy ( ````bundle exec rake deploy```` )
+4. If you haven't already, make sure to scale both the web and worker processes ( ````heroku scale web=1 worker=1 ````)
 
 The Rake task will temporarily add your user_data.rb file to the repo to deploy it, then revert the changes after deploying.
 
