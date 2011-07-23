@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title Location Board
+    %link{:href => "/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %script{:type => "text/javascript"}
+      = "var users = #{JSON( @users.collect {|user| user.to_hash} )}"
+    %script{:src => "/application.js", :type => "text/javascript"}
+  %body
+    #map_canvas
+    #users
+      - @users.each do |user|
+        .user
+          - if user.updated_at  and ( user.updated_at > (Time.now - 86400) )
+            .current
+              %div{:style => "float: right; padding: 1px; border: 2px solid #ccc;"}
+                %a{:href => "javascript:recenter(#{user.lat}, #{user.lng});"}
+                  %img{:border => "0", :height => "48", :src => user.avatar_url, :width => "48"}/
+              %a{:href => "javascript:recenter(#{user.lat}, #{user.lng});"}
+                = user.username
+              %br/
+              %small
+                = user.spot
+                = "<br />#{user.city}" if user.city
+                %br/
+                %em
+                  %a{:href => user.service_url}
+                    = user.updated_at.ago_in_words
+                    with
+                    = user.service_name
+          - else
+            .old= user.username
