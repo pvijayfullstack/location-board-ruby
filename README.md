@@ -21,7 +21,7 @@ The Rake task will temporarily add your user_data.rb file to the repo to deploy 
 
 # History
 
-This app was made during a hackfest at the 2010 LifeChurch.tv Digerati retreat. We haven't really touched it since, so would love some help cleaning things up!
+This app was made during a hackfest at the 2010 LifeChurch.tv Digerati retreat. After releasing the original PHP version, we then created this Ruby/Sinatra version.
 
 # Contributing
 
