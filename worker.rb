@@ -9,7 +9,7 @@ require 'logger'
 
 LOGGER = Logger.new(STDERR)
 LOGGER.level = Logger::DEBUG
-PULL_INTERVAL = 900
+PULL_INTERVAL = 840
 
 
 ###############################
@@ -28,6 +28,8 @@ def make_request(url, options = {})
 end
 
 ###############################
+
+sleep 60 # Don't get started yet -- web server needs some time to reboot after deployment
 
 USERS.each_with_index do |user_info, i|
 
