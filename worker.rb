@@ -29,7 +29,7 @@ end
 
 ###############################
 
-sleep 60 # Don't get started yet -- web server needs some time to reboot after deployment
+sleep 30 # Don't get started yet -- web server needs some time to reboot after deployment
 
 USERS.each_with_index do |user_info, i|
 
